@@ -1,6 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:secondscreen/models/model_screen.dart';
+import 'package:secondscreen/widgets/widgets_screen.dart';
 
 void main(){
   runApp(const MyApp());
@@ -20,9 +20,23 @@ class MyApp extends StatelessWidget{
 
 }
 
-class MyKhaliq extends StatelessWidget{
+class MyKhaliq extends StatefulWidget{
   const MyKhaliq({Key? key}) : super(key: key);
 
+  @override
+  State<MyKhaliq> createState() => _MyKhaliqState();
+}
+
+class _MyKhaliqState extends State<MyKhaliq> {
+  List<ModelScreen> listname=[
+    ModelScreen("M.Idrees", "65Y","Image12"),
+    ModelScreen("Naeem", "25Y","Image19"),
+    ModelScreen("Ali", "22Y","Image16"),
+    ModelScreen("Khaliq", "19Y","Image1"),
+    ModelScreen("Qayyum", "18Y","Image18"),
+    ModelScreen("Iqbal", "71Y","Image2"),
+    
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,96 +92,19 @@ class MyKhaliq extends StatelessWidget{
                          Text("Sales Revenue",style: TextStyle(color: Colors.white,fontSize: 23),),
                       ],
                     ),
-                   ListTile(
-                     leading: Container(
-                       height: 50,
-                       width: 50,
-                       child: Icon(Icons.settings,color: Colors.black,),
-                       decoration: BoxDecoration(
-                        color: Colors.greenAccent,
-                        shape: BoxShape.circle,
-                       ),
-                     ),
-                     textColor: Colors.white,
-                     title: Text("Sales",style: TextStyle(fontSize: 20),),
-                     subtitle: Text("Since Last Week",style: TextStyle(color: Colors.white38),),
-                     trailing: Text("230K",style: TextStyle(fontSize: 23),),
-                   ),
-                   ListTile(
-                     leading: Container(
-                       height: 50,
-                       width: 50,
-                       child: Icon(Icons.person,color: Colors.black,),
-                       decoration: BoxDecoration(
-                        color: Colors.yellowAccent,
-                        shape: BoxShape.circle,
-                       ),
-                     ),
-                     textColor: Colors.white,
-                     title: Text("Customers",style: TextStyle(fontSize: 20),),
-                     subtitle: Text("Since Last Week",style: TextStyle(color: Colors.white38),),
-                     trailing: Text("8.54K",style: TextStyle(fontSize: 23),),
-                   ),
-                   ListTile(
-                     leading: Container(
-                       height: 50,
-                       width: 50,
-                       child: Icon(Icons.settings,color: Colors.black,),
-                       decoration: BoxDecoration(
-                        color: Colors.purpleAccent,
-                        shape: BoxShape.circle,
-                       ),
-                     ),
-                     textColor: Colors.white,
-                     title: Text("Products",style: TextStyle(fontSize: 20),),
-                     subtitle: Text("Since Last Week",style: TextStyle(color: Colors.white38),),
-                     trailing: Text("200K",style: TextStyle(fontSize: 23),),
-                   ),
-                   ListTile(
-                     leading: Container(
-                       height: 50,
-                       width: 50,
-                       child: Icon(Icons.settings,color: Colors.black,),
-                       decoration: BoxDecoration(
-                        color: Colors.pinkAccent,
-                        shape: BoxShape.circle,
-                       ),
-                     ),
-                     textColor: Colors.white,
-                     title: Text("Revenue",style: TextStyle(fontSize: 20),),
-                     subtitle: Text("Since Last Week",style: TextStyle(color: Colors.white38),),
-                     trailing: Text("442K",style: TextStyle(fontSize: 23),),
-                   ),
-                   ListTile(
-                     leading: Container(
-                       height: 50,
-                       width: 50,
-                       child: Icon(Icons.settings,color: Colors.black,),
-                       decoration: BoxDecoration(
-                        color: Colors.blueGrey,
-                        shape: BoxShape.circle,
-                       ),
-                     ),
-                     textColor: Colors.white,
-                     title: Text("Akram",style: TextStyle(fontSize: 20),),
-                     subtitle: Text("Since Last Week",style: TextStyle(color: Colors.white38),),
-                     trailing: Text("235K",style: TextStyle(fontSize: 23),),
-                   ),
-                   ListTile(
-                     leading: Container(
-                       height: 50,
-                       width: 50,
-                       child: Icon(Icons.settings,color: Colors.black,),
-                       decoration: BoxDecoration(
-                        color: Colors.amberAccent,
-                        shape: BoxShape.circle,
-                       ),
-                     ),
-                     textColor: Colors.white,
-                     title: Text("Muneeb",style: TextStyle(fontSize: 20),),
-                     subtitle: Text("Since Last Week",style: TextStyle(color: Colors.white38),),
-                     trailing: Text("330K",style: TextStyle(fontSize: 23),),
-                   ),
+                    SizedBox(
+                      height: 600,
+                      child: ListView.builder(
+                        itemCount: listname.length,
+                        itemBuilder:((context,index) {
+                          return WidgetScreen(
+                            listname[index].text1,
+                            listname[index].text2,
+                            listname[index].image,
+                            );
+                        }),
+                      ),
+                    )
                    ],
                  ),
                ),
@@ -181,5 +118,4 @@ class MyKhaliq extends StatelessWidget{
       ),
     );
   }
-
 }
