@@ -14,7 +14,7 @@ class WidgetScreen extends StatelessWidget{
                      
                      textColor: Colors.white,
                      title: Text(test1,style: TextStyle(fontSize: 20),),
-                     subtitle: Text("Since Last Week",style: TextStyle(color: Colors.white38),),
+                     subtitle: Text("I Love Pakistan!",style: TextStyle(color: Colors.white38),),
                      trailing: Text(text2,style: TextStyle(fontSize: 23),),
     ); 
   }
